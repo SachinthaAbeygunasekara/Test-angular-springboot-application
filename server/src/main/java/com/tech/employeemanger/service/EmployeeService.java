@@ -1,6 +1,7 @@
 package com.tech.employeemanger.service;
 
 import com.tech.employeemanger.entity.Employee;
+import com.tech.employeemanger.exception.UserNotFoundException;
 import com.tech.employeemanger.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
