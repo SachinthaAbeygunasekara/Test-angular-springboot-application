@@ -3,6 +3,7 @@ package com.tech.employeemanger.service;
 import com.tech.employeemanger.entity.Employee;
 import com.tech.employeemanger.exception.UserNotFoundException;
 import com.tech.employeemanger.repository.EmployeeRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,6 +37,7 @@ public class EmployeeService {
                 orElseThrow(() -> new UserNotFoundException("User by id "+ id + " was not found"));
     }
 
+    @Transactional
     public void deleteEmployee(Integer id){
          employeeRepository.deleteEmployeeById(id);
     }
