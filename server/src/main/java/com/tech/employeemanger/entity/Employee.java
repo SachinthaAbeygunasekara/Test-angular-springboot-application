@@ -2,8 +2,6 @@ package com.tech.employeemanger.entity;
 
 import jakarta.persistence.*;
 
-import java.util.Date;
-
 @Entity
 public class Employee {
     @Id
@@ -13,25 +11,21 @@ public class Employee {
     @Column(nullable = false, updatable = false)
     private String employeeCode;
     private  String name;
-    private Date dob;
-    private String nic;
     private String mobile;
-    private String address;
     private String email;
+    private String jobTitle;
     private String imageUrl;
 
     public Employee() {
     }
 
-    public Employee(Integer id, String employeeCode, String name, Date dob, String nic, String mobile, String address, String email, String imageUrl) {
+    public Employee(Integer id, String employeeCode, String name, String mobile, String email, String jobTitle, String imageUrl) {
         this.id = id;
         this.employeeCode = employeeCode;
         this.name = name;
-        this.dob = dob;
-        this.nic = nic;
         this.mobile = mobile;
-        this.address = address;
         this.email = email;
+        this.jobTitle = jobTitle;
         this.imageUrl = imageUrl;
     }
 
@@ -41,6 +35,14 @@ public class Employee {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getJobTitle() {
+        return jobTitle;
+    }
+
+    public void setJobTitle(String jobTitle) {
+        this.jobTitle = jobTitle;
     }
 
     public String getEmployeeCode() {
@@ -59,21 +61,6 @@ public class Employee {
         this.name = name;
     }
 
-    public Date getDob() {
-        return dob;
-    }
-
-    public void setDob(Date dob) {
-        this.dob = dob;
-    }
-
-    public String getNic() {
-        return nic;
-    }
-
-    public void setNic(String nic) {
-        this.nic = nic;
-    }
 
     public String getMobile() {
         return mobile;
@@ -83,13 +70,6 @@ public class Employee {
         this.mobile = mobile;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
 
     public String getEmail() {
         return email;
@@ -113,11 +93,9 @@ public class Employee {
                 "id=" + id +
                 ", employeeCode='" + employeeCode + '\'' +
                 ", name='" + name + '\'' +
-                ", dob=" + dob +
-                ", nic='" + nic + '\'' +
                 ", mobile='" + mobile + '\'' +
-                ", address='" + address + '\'' +
                 ", email='" + email + '\'' +
+                ", jobTitle='" + jobTitle + '\'' +
                 ", imageUrl='" + imageUrl + '\'' +
                 '}';
     }

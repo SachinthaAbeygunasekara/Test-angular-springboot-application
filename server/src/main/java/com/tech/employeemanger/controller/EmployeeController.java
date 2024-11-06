@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
-@RequestMapping("/employee")
+@CrossOrigin
+@RestController
+@RequestMapping("employee")
 public class EmployeeController {
     private final EmployeeService employeeService;
 
@@ -18,7 +19,7 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<List<Employee>> getAllEmployees(){
         List<Employee>  employees = employeeService.findAllEmployees();
         return new ResponseEntity<>(employees, HttpStatus.OK);
